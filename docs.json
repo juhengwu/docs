@@ -11,28 +11,40 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Docs",
+        "tab": "Introduction",
         "groups": [
           {
-            "group": "Welcome",
+            "group": "Intro",
             "pages": [
-              "index",
+              "introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Get Started",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "get-started",
               "quickstart"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
           {
-            "group": "Core concepts",
+            "group": "Platform",
             "pages": [
               "product",
               "workspace",
               "evaluation",
-              "monitoring"
-            ]
-          },
-          {
-            "group": "Using Know Your AI",
-            "pages": [
-              "how-to-use"
+              "monitoring",
+              "how-to-use",
+              "features"
             ]
           }
         ]
@@ -52,8 +64,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Get started",
-      "href": "/quickstart"
+      "label": "Dashboard",
+      "href": "https://dashboard.mintlify.com"
     }
   },
   "contextual": {
