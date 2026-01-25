@@ -1,0 +1,90 @@
+---
+title: "Evaluation"
+description: "How Know Your AI scores quality, safety, and compliance."
+---
+
+Evaluations turn raw model outputs into measurable signals. They help you compare versions, enforce policy, and prevent regressions.
+
+## Evaluation building blocks
+
+Every evaluation is made of four core parts:
+
+1. **Dataset**: the prompts and responses to evaluate
+2. **Rubric**: the criteria that define success
+3. **Scorer**: automated metric, LLM-judge, or human review
+4. **Thresholds**: pass/fail rules and alert triggers
+
+## How we run evaluations
+
+Know Your AI follows a consistent pipeline so results are reproducible and auditable.
+
+<Steps>
+  <Step title="Normalize the data">
+    Inputs are mapped into a consistent schema so every run uses the same fields.
+  </Step>
+  <Step title="Apply the rubric">
+    Each output is scored against the rubric criteria with clear definitions.
+  </Step>
+  <Step title="Aggregate scores">
+    Scores roll up into overall metrics, weighted by priority and thresholds.
+  </Step>
+  <Step title="Review exceptions">
+    Outliers and failures are routed for human review or follow-up.
+  </Step>
+  <Step title="Store evidence">
+    Every run stores the data, rubric version, and results for traceability.
+  </Step>
+</Steps>
+
+## Evaluation types
+
+| Type | Best for | Example |
+| --- | --- | --- |
+| Automated metrics | Deterministic checks | Regex, exact match, toxicity scores |
+| LLM-judge rubric | Complex, subjective criteria | Helpfulness, policy compliance |
+| Human review | High-stakes decisions | Safety review or legal sign-off |
+
+## Designing a rubric
+
+A strong rubric is specific, measurable, and aligned to business goals.
+
+- Use 3–6 criteria with clear definitions
+- Assign weights to prioritize what matters most
+- Provide positive and negative examples
+
+<Note>
+  **Tip:** Start simple. Add criteria only when you can explain why they matter.
+</Note>
+
+## Running evaluations
+
+You can run evaluations in three ways:
+
+- **Ad-hoc runs** for rapid experimentation
+- **Scheduled runs** for continuous monitoring
+- **Release gates** that block deployment if metrics fail
+
+## Interpreting results
+
+Look beyond a single score:
+
+- Compare to a baseline evaluation
+- Review the bottom 5–10% of results
+- Track trends over time, not just snapshots
+
+## Common pitfalls
+
+- Evaluating with biased or unrepresentative data
+- Using a rubric that is too vague to be reproducible
+- Ignoring distribution shifts between staging and prod
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="How to use it" icon="wand-magic" href="/how-to-use">
+    Operational workflow from data to deployment.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Turn evaluations into ongoing health signals.
+  </Card>
+</CardGroup>

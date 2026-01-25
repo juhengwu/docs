@@ -1,0 +1,81 @@
+---
+title: "How to use Know Your AI"
+description: "Recommended workflows from experiment to production."
+---
+
+This page outlines a practical workflow for teams using Know Your AI day-to-day.
+
+## 1) Define success
+
+Start by aligning on what matters most:
+
+- Business outcomes (e.g., resolution rate, CSAT)
+- Safety and compliance requirements
+- Quality expectations for end users
+
+## 2) Build a representative dataset
+
+Use a mix of:
+
+- Real production logs
+- Edge cases and stress tests
+- Known failures from previous releases
+
+## 3) Design evaluations
+
+Create a rubric that matches your goals.
+
+- Keep criteria specific and testable
+- Include a minimum bar for release
+- Add reviewer notes for unclear cases
+
+## 4) Compare model versions
+
+Use the evaluation report to compare:
+
+- Current production baseline
+- Candidate models or prompt changes
+- Variations in cost and latency
+
+## 5) Ship with guardrails
+
+Before release:
+
+- Run evaluations in staging
+- Review the worst-scoring examples
+- Set release gates for critical metrics
+
+## 6) Monitor continuously
+
+After release:
+
+- Schedule evaluations to run daily
+- Set alerts for safety or quality drops
+- Share dashboards with stakeholders
+
+## Weekly cadence (example)
+
+| Day | Activity |
+| --- | --- |
+| Monday | Pull latest production logs and refresh datasets |
+| Tuesday | Run evaluations on candidate model versions |
+| Wednesday | Review results, adjust rubrics, update prompts |
+| Thursday | Launch staged release with monitoring enabled |
+| Friday | Share monitoring report with the team |
+
+## Collaboration tips
+
+- Keep rubrics versioned and documented
+- Leave comments on failed examples to build shared context
+- Use one workspace per product for clarity
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Get started" icon="rocket" href="/quickstart">
+    Set up the first evaluation.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Keep quality stable after launch.
+  </Card>
+</CardGroup>

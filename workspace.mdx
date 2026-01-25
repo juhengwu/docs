@@ -1,0 +1,66 @@
+---
+title: "Workspace"
+description: "How workspaces organize projects, people, and environments."
+---
+
+A workspace is the top-level boundary in Know Your AI. It groups datasets, evaluations, and monitoring views for a single product or project.
+
+## What belongs in a workspace
+
+- One AI product or feature area
+- Shared datasets and evaluation logic
+- Team members and access controls
+- Environment-specific settings
+
+## Environments
+
+Use environments to prevent accidental production changes and keep results clear.
+
+| Environment | Typical use |
+| --- | --- |
+| Dev | Early experiments and rubric drafts |
+| Staging | Release candidates and pre-prod validation |
+| Prod | Live monitoring and compliance reporting |
+
+## Roles and permissions
+
+Common workspace roles include:
+
+- **Admin**: manage settings, members, and permissions
+- **Editor**: create and run evaluations
+- **Reviewer**: annotate results, approve releases
+- **Viewer**: read-only access for stakeholders
+
+## Workspace setup checklist
+
+<Steps>
+  <Step title="Name and scope the workspace">
+    Match the scope to a product or AI feature so results are actionable.
+  </Step>
+  <Step title="Invite the right people">
+    Include product, ML, QA, and compliance stakeholders early.
+  </Step>
+  <Step title="Define environments">
+    Configure dev/staging/prod to align with your release flow.
+  </Step>
+  <Step title="Create a baseline dataset">
+    Use a representative dataset to anchor future comparisons.
+  </Step>
+</Steps>
+
+## Best practices
+
+- Keep one workspace per product line to avoid mixing metrics
+- Store baseline evaluations before any major model change
+- Document ownership for each evaluation and dashboard
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Get started" icon="rocket" href="/quickstart">
+    Launch your first workspace and evaluation.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Track production health per workspace.
+  </Card>
+</CardGroup>

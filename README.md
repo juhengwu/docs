@@ -1,26 +1,17 @@
-# Mintlify Starter Kit
+# Know Your AI Docs
 
-Use the starter kit to get your docs deployed and ready to customize.
-
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
-
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
-
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+This folder contains the Mintlify documentation site for **Know Your AI**.
+It covers the product overview, core concepts, evaluation workflows, and monitoring guidance.
 
 ## Development
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview the docs locally. To install, run:
 
 ```
 npm i -g mint
 ```
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+Run the following command at the root of the docs (where `docs.json` lives):
 
 ```
 mint dev
@@ -30,7 +21,7 @@ View your local preview at `http://localhost:3000`.
 
 ## Publishing changes
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+Push updates to the `beta` branch (or your default docs branch) to publish changes through your existing deployment pipeline.
 
 ## Need help?
 

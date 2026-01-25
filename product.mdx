@@ -1,0 +1,60 @@
+---
+title: "Product overview"
+description: "Know Your AI product modules and how they fit together."
+---
+
+Know Your AI is a platform for evaluating, monitoring, and governing AI systems from prototype to production.
+It combines data capture, evaluation logic, and observability in one place so teams can ship with confidence.
+
+## Platform modules
+
+| Module | What it does | Typical users |
+| --- | --- | --- |
+| Datasets | Store prompts, responses, metadata, and ground truth | ML engineers, QA |
+| Evaluations | Score quality, safety, policy alignment, and regression risk | Product, ML, risk |
+| Monitoring | Track live performance and detect drift | ML ops, engineering |
+| Evidence | Keep audit trails for decisions and releases | Compliance, leadership |
+| Collaboration | Reviews, comments, and approval workflows | Cross-functional teams |
+
+## Data flow
+
+1. **Capture** interactions from logs, tests, or manual uploads.
+2. **Normalize** fields into datasets with consistent schemas.
+3. **Evaluate** with automated metrics, LLM-judge rubrics, or humans.
+4. **Monitor** ongoing health with dashboards and alerts.
+5. **Report** outcomes with clear evidence for stakeholders.
+
+## What problems it solves
+
+- **Quality regression** after model or prompt changes
+- **Safety risk** from harmful or policy-violating outputs
+- **Drift** as user behavior or data changes over time
+- **Lack of evidence** for audits or leadership reviews
+
+## Built-in capabilities
+
+- Versioned datasets and evaluation runs
+- Multi-model comparisons and baselines
+- Policy and safety checks
+- Human review queues
+- Automated alerts and reporting
+
+## Security and governance
+
+Know Your AI is designed for teams that need traceability and access controls:
+
+- Role-based access per workspace
+- Environment isolation (dev/staging/prod)
+- Audit-ready evaluation history
+- Optional data retention policies
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Workspace" icon="folder" href="/workspace">
+    Set boundaries, roles, and environments.
+  </Card>
+  <Card title="Evaluation" icon="check-double" href="/evaluation">
+    Understand scoring methods and rubrics.
+  </Card>
+</CardGroup>
