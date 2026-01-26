@@ -74,14 +74,5 @@
       "chatgpt",
       "claude"
     ]
-  },
-  "ai": {
-    "enabled": true,
-    "sampleQuestions": [
-      "What is Know Your AI?",
-      "How do I get started?",
-      "What features are available?"
-    ]
   }
-
 }
