@@ -76,7 +76,12 @@
     ]
   },
   "ai": {
-  "enabled": true
-}
+    "enabled": true,
+    "sampleQuestions": [
+      "What is Know Your AI?",
+      "How do I get started?",
+      "What features are available?"
+    ]
+  }
 
 }
