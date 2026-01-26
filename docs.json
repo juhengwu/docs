@@ -33,6 +33,17 @@
         ]
       },
       {
+        "tab": "Datasets",
+        "groups": [
+          {
+            "group": "Datasets",
+            "pages": [
+              "datasets"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Features",
         "groups": [
           {
@@ -42,6 +53,7 @@
               "workspace",
               "evaluation",
               "monitoring",
+              "compliance",
               "how-to-use",
               "features"
             ]

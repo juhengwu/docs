@@ -1,17 +1,84 @@
 ---
-title: "Introduction"
-description: "Welcome to Know Your AI"
+title: "Welcome"
+description: "Get to know Know Your AI and ship safer, higher-quality AI experiences."
 ---
 
-Welcome to Know Your AI — an evaluation and monitoring platform to help teams ship safer, higher-quality AI.
+Know Your AI is a security and evaluation platform built to help teams understand, test, and improve AI systems end-to-end.
+Unlike tools that only surface metrics, Know Your AI helps you plan evaluation workflows, execute them at scale, and deliver
+clear, actionable findings from datasets, model runs, and human review.
 
-This site contains the product overview, quickstart guides, and feature documentation to get your team running.
+This site contains the product overview, quickstart guides, and feature documentation to get your team up and running.
+
+<Card
+  title="Get started"
+  icon="rocket"
+  href="/quickstart"
+  horizontal
+>
+  Create your first workspace, connect a product, and run an offline evaluation.
+</Card>
+
+## What is Know Your AI?
+
+Know Your AI is an evaluation and monitoring platform for AI applications. It centralizes:
+
+- **Workspaces** for teams and projects
+- **Datasets** from the Prompt Market and your own uploads
+- **Evaluations** to score quality, safety, and compliance
+- **Monitoring** dashboards and alerts
+- **Evidence** trails for audits and reviews
+
+## Who is it for?
+
+- **Product teams** validating new model releases
+- **ML/AI engineers** testing prompts and model variants
+- **Risk & compliance** teams tracking policies
+- **QA and support** teams monitoring regressions
+
+## Core concepts at a glance
 
 <CardGroup cols={2}>
-  <Card title="Get started" icon="rocket" href="/get-started">
-    Create your first workspace, dataset, and evaluation.
+  <Card title="Product" icon="layer-group" href="/product">
+    Explore the platform modules and how they work together.
   </Card>
-  <Card title="Ask AI" icon="comments" href="/ask-ai">
-    Try the built-in assistant to explore the docs and ask questions.
+  <Card title="Workspace" icon="folder" href="/workspace">
+    Understand project boundaries, roles, and access controls.
+  </Card>
+  <Card title="Evaluation" icon="check-double" href="/evaluation">
+    Learn how we score quality, safety, and policy compliance.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Track live performance with dashboards and alerts.
+  </Card>
+</CardGroup>
+
+## Typical workflow
+
+<Steps>
+  <Step title="Select a dataset">
+    Choose a dataset from the Prompt Market that matches your risk profile.
+  </Step>
+  <Step title="Connect your product">
+    Link your product API so we can run offline evaluations.
+  </Step>
+  <Step title="Run and review">
+    Use LLM-as-judge and human review to surface issues and risks.
+  </Step>
+  <Step title="Monitor in production">
+    Track drift and quality in real time with alerts and reports.
+  </Step>
+</Steps>
+
+## Where to go next
+
+<CardGroup cols={3}>
+  <Card title="Get started" icon="flag-checkered" href="/quickstart">
+    Launch your first evaluation.
+  </Card>
+  <Card title="Datasets" icon="database" href="/datasets">
+    Browse curated prompt datasets and attack methods.
+  </Card>
+  <Card title="Monitoring" icon="radar" href="/monitoring">
+    Stay on top of model health.
   </Card>
 </CardGroup>

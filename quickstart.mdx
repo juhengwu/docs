@@ -3,12 +3,12 @@ title: "Get started"
 description: "Create your first workspace, evaluation, and monitoring view."
 ---
 
-This guide gets you from zero to your first evaluation run with Know Your AI.
+This guide gets you from zero to your first offline evaluation run with Know Your AI.
 
 <Info>
   **What you'll need**
   - A Know Your AI account
-  - Access to your model inputs/outputs (logs, traces, or datasets)
+  - Access to the product API you want to evaluate
   - A use case you want to measure (quality, safety, or compliance)
 </Info>
 
@@ -23,66 +23,48 @@ Workspaces keep data, evaluations, and access controls isolated by project.
   <Step title="Add members">
     Invite teammates and assign roles (admin, editor, reviewer, viewer).
   </Step>
-  <Step title="Set environments">
-    Use dev, staging, and production environments to prevent accidental production changes.
-  </Step>
 </Steps>
 
-## 2) Connect your data
+## 2) Connect your product
 
-Bring in recent model interactions from logs or CSV exports.
+Choose a dataset from the Prompt Market and connect it to your product.
 
 <Steps>
-  <Step title="Create a dataset">
-    Upload a CSV or connect a log stream from your application.
+  <Step title="Pick a dataset">
+    In **Product**, choose a dataset from the Prompt Market. These include community attack prompts,
+    attack methods, and benchmarks such as Humanity’s Last Exam.
   </Step>
-  <Step title="Map fields">
-    Identify prompt, response, metadata, and optional ground truth fields.
+  <Step title="Connect your API">
+    Link your product endpoint so we can run the dataset against your model for offline evaluation.
   </Step>
-  <Step title="Sample wisely">
-    Start with a small representative slice to validate evaluation quality.
+  <Step title="Confirm the connection">
+    Save the product connection so the evaluation can run with the selected dataset.
   </Step>
 </Steps>
 
-## 3) Build your first evaluation
+## 3) Run your first evaluation
 
-Define what “good” looks like for your use case.
+Run the dataset through your product and score the results.
 
 <Steps>
-  <Step title="Pick evaluation type">
-    Choose an automated metric, LLM-judge rubric, or human review.
+  <Step title="Choose a judge">
+    Use **LLM as the Judge**, **Human Annotate**, or both.
   </Step>
-  <Step title="Create a rubric">
-    Add criteria like accuracy, policy adherence, tone, or grounding.
+  <Step title="Run the evaluation">
+    Start the offline evaluation to collect model responses and scores.
   </Step>
-  <Step title="Set thresholds">
-    Decide what passes vs. fails, and what requires review.
-  </Step>
-</Steps>
-
-## 4) Run and review
-
-Kick off a run and review results in the evaluation report.
-
-- Compare scores across model versions
-- Inspect failed examples
-- Add notes for human review
-
-## 5) Turn on monitoring
-
-Once the evaluation looks good, schedule it to run regularly.
-
-<Steps>
-  <Step title="Schedule evaluations">
-    Run daily or after every deployment.
-  </Step>
-  <Step title="Create alerts">
-    Notify your team when quality falls below thresholds.
-  </Step>
-  <Step title="Share dashboards">
-    Publish monitoring views to stakeholders.
+  <Step title="Review issues and risks">
+    We analyze the responses and surface the key problems and risks found in the run.
   </Step>
 </Steps>
+
+## 4) Share results
+
+Use the evaluation report to align on improvements and next steps.
+
+- Review the scored examples and annotations
+- Track the risks that matter to your product
+- Export findings for your team
 
 ## Next steps
 
