@@ -74,5 +74,8 @@
       "chatgpt",
       "claude"
     ]
+  },
+  "ai": {
+    "enabled": true
   }
 }
