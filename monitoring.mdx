@@ -1,58 +1,64 @@
 ---
 title: "Monitoring"
-description: "Track model health, detect drift, and respond quickly."
+description: "Track AI usage, performance, and errors with SDK integration and tracing."
 ---
 
-Monitoring keeps your AI system healthy after launch. It surfaces changes in quality and safety before users notice.
+Monitoring gives you full visibility into your production AI system. Integrate the `@know-your-ai` SDK to automatically capture every AI interaction and surface it in dashboards and traces.
 
-## What to monitor
+## SDK integration
 
-- **Quality score** by evaluation and model version
-- **Policy violations** and safety flags
-- **Refusal rate** and false refusals
-- **Latency and cost** signals tied to user experience
-- **Drift** in input data or user intent
+Add the `@know-your-ai` SDK to your application to start capturing events.
 
-## Dashboards
+1. Install the SDK package
+2. Configure your **DSN** (Data Source Name) from the product settings
+3. The SDK automatically captures: provider, model, token usage, cost, latency, errors, and trace/span data
 
-Dashboards summarize your most important metrics and trends.
+## Monitoring dashboard
 
-- Filter by time range, environment, or model version
-- Slice metrics by customer segment or metadata
-- Compare live results against your baseline
+The monitoring dashboard aggregates SDK events with key metrics:
 
-## Alerts
+- **Total requests** — Count of AI interactions over time
+- **Error count** — Failed requests and error rates
+- **Average duration** — Response time metrics
+- **Token usage** — Input, output, and cached tokens
+- **Cost tracking** — Estimated cost per interaction
+- **Latency breakdown** — TTFB, throughput, p95 percentiles
+- **Provider distribution** — Usage split by AI provider
+- **Model distribution** — Usage split by model version
 
-Set alerts to notify the team when thresholds are breached.
+## Tracing
 
-<Steps>
-  <Step title="Choose a metric">
-    Pick a critical evaluation or safety signal.
-  </Step>
-  <Step title="Set thresholds">
-    Use a baseline run or policy limit to define alerts.
-  </Step>
-  <Step title="Route notifications">
-    Notify Slack, email, or ticketing workflows.
-  </Step>
-</Steps>
+The tracing view provides a full span-tree visualization for debugging AI interactions.
 
-## Drift detection
+**Supported span types:**
 
-Drift can hide in subtle changes. Use these signals together:
+| Span type | Description |
+| --- | --- |
+| Generation | LLM call with input/output |
+| Agent | Agent orchestration step |
+| Tool | Tool/function call |
+| Chain | Chained processing step |
+| Retriever | RAG retrieval step |
+| Evaluator | Evaluation judgment |
+| Guardrail | Safety/content filter |
+| Event | Custom event |
 
-- Shifts in input distributions
-- Sudden score changes after a release
-- New failure modes in error clusters
+Each span includes:
 
-## Incident response
+- Trace, session, and user context
+- Input/output data
+- Tool calls and errors
+- Duration and timing
+- Filterable by status, model, and time range
 
-When an alert fires:
+## Token usage charts
 
-1. **Triaging**: Review the failing examples and metadata.
-2. **Diagnosing**: Compare to baseline and staging runs.
-3. **Mitigating**: Roll back, hotfix prompts, or update guardrails.
-4. **Documenting**: Capture evidence and decisions for audit trails.
+Track token usage over time with configurable views:
+
+- Input tokens, output tokens, and total
+- Configurable granularity: hour, day, month
+- Time ranges: 24 hours, 7 days, 30 days, 90 days
+- Server response time charts
 
 ## Related docs
 

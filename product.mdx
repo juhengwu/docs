@@ -4,49 +4,68 @@ description: "Know Your AI product modules and how they fit together."
 ---
 
 Know Your AI is a platform for evaluating, monitoring, and governing AI systems from prototype to production.
-It combines data capture, evaluation logic, and observability in one place so teams can ship with confidence.
+It combines attack-driven datasets, LLM-as-Judge evaluation, SDK-based monitoring, and a firewall in one place so teams can ship with confidence.
 
 ## Platform modules
 
 | Module | What it does | Typical users |
 | --- | --- | --- |
-| Datasets | Store prompts, responses, metadata, and ground truth | ML engineers, QA |
-| Evaluations | Score quality, safety, policy alignment, and regression risk | Product, ML, risk |
-| Monitoring | Track live performance and detect drift | ML ops, engineering |
-| Evidence | Keep audit trails for decisions and releases | Compliance, leadership |
-| Collaboration | Reviews, comments, and approval workflows | Cross-functional teams |
+| Products | Represent AI systems (Website, API, Streaming API) with onboarding, connections, and metrics | Product, ML engineers |
+| Datasets | Store attack prompts, safety tests, benchmarks — from the Marketplace or uploaded by your team | ML engineers, security |
+| Evaluations | Score security, safety, and compliance with configurable LLM-as-Judge and automated analysis | Product, ML, security |
+| Monitoring | Track live SDK events — requests, tokens, cost, latency, errors — with dashboards | ML ops, engineering |
+| Tracing | Visualize AI interaction spans (generation, agent, tool, chain, retriever, guardrail) in a tree view | ML engineers, debugging |
+| Firewall | Validate inputs/outputs in real time with risk categorization and token tracking | Security, engineering |
+| Compliance | CCPA/CPRA violation tracking with 3-tier analysis, EU AI Act, and NIST AI RMF coverage | Risk, compliance, legal |
+
+## Product types
+
+When you create a product, choose the type that matches your AI system:
+
+| Type | Description | Evaluation method |
+| --- | --- | --- |
+| Website | Web-based chatbot or AI UI | Browser automation with Brave + VNC live viewer |
+| API | Standard REST API endpoint | Direct API calls (OpenAI-compatible or custom) |
+| Streaming API | Streaming API endpoint | Streaming API calls |
 
 ## Data flow
 
-1. **Capture** interactions from logs, tests, or manual uploads.
-2. **Normalize** fields into datasets with consistent schemas.
-3. **Evaluate** with automated metrics, LLM-judge rubrics, or humans.
-4. **Monitor** ongoing health with dashboards and alerts.
-5. **Report** outcomes with clear evidence for stakeholders.
+1. **Create** a product and connect your AI system endpoint.
+2. **Select** datasets from the Marketplace or upload your own.
+3. **Evaluate** by composing tests that send prompts and judge responses with an LLM.
+4. **Analyze** security scores, per-prompt pass/fail, and compliance violations.
+5. **Monitor** ongoing health with SDK integration, dashboards, and tracing.
 
 ## What problems it solves
 
+- **Security vulnerabilities** from jailbreaks, prompt injection, and data extraction attacks
+- **Safety risk** from harmful, biased, or policy-violating outputs
+- **Compliance gaps** in CCPA/CPRA, EU AI Act, and NIST AI RMF policies
+- **Lack of visibility** into production AI usage, cost, and errors
 - **Quality regression** after model or prompt changes
-- **Safety risk** from harmful or policy-violating outputs
-- **Drift** as user behavior or data changes over time
-- **Lack of evidence** for audits or leadership reviews
 
 ## Built-in capabilities
 
-- Versioned datasets and evaluation runs
-- Multi-model comparisons and baselines
-- Policy and safety checks
-- Human review queues
-- Automated alerts and reporting
+- 15+ attack methods (GCG, ABJ, PAIR, DAN, CIPHER, and more)
+- LLM-as-Judge with configurable models and prompts
+- Browser automation with VNC for website products
+- Real-time execution console with streaming logs
+- SDK integration for production monitoring and tracing
+- Firewall with input/output validation and token tracking
+- CCPA/CPRA compliance analysis with 3-tier violation scoring
+- Scheduled evaluations (hourly, daily, weekly, monthly, custom cron)
+- Workspace quota management with usage ledger
+- Dataset and Evaluation Marketplaces
 
 ## Security and governance
 
 Know Your AI is designed for teams that need traceability and access controls:
 
-- Role-based access per workspace
-- Environment isolation (dev/staging/prod)
-- Audit-ready evaluation history
-- Optional data retention policies
+- Role-based access per workspace (owner, admin, developer, viewer)
+- Workspace-level isolation for products, datasets, and evaluations
+- Audit-ready evaluation history with per-run evidence
+- Quota system with monthly reset and usage ledger
+- Workspace tiers (Free, Pro, Enterprise)
 
 ## Related docs
 

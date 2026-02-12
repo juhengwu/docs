@@ -1,0 +1,72 @@
+---
+title: "Firewall"
+description: "Real-time input/output validation for AI applications."
+---
+
+The Know Your AI Firewall provides real-time validation of AI inputs and outputs, catching policy violations,
+harmful content, and security risks before they reach your users.
+
+## How it works
+
+The firewall sits between your application and your AI model, validating each request and response:
+
+1. Your application sends the user input through the firewall
+2. The firewall validates the input against configured rules
+3. The request is forwarded to your AI model
+4. The model response is validated before being returned to the user
+5. Each validation is logged with risk categorization and scoring
+
+## Setup
+
+<Steps>
+  <Step title="Generate an API key">
+    In your product page, go to **Firewall** and generate a firewall API key.
+  </Step>
+  <Step title="Integrate the SDK">
+    Add the `@know-your-ai/firewall` SDK to your application and configure it with your API key.
+  </Step>
+  <Step title="Monitor validations">
+    View all validations in **Firewall Logs** with risk details and pass/fail status.
+  </Step>
+</Steps>
+
+## Firewall logs
+
+The **Logs** page shows a complete history of all firewall validations with:
+
+- **Risk category** — The type of risk detected (e.g., jailbreak, harmful content, PII)
+- **Risk score** — Numeric confidence score for the detection
+- **Risk reason** — Explanation of why the content was flagged
+- **Pass/fail status** — Whether the validation passed or was blocked
+- **Input/output tokens** — Token count tracking per validation
+
+## Token usage analytics
+
+The **Token Usage** page provides time-series charts for:
+
+- Input tokens over time
+- Output tokens over time
+- Total token count
+- Configurable granularity: hour, day, month
+- Time ranges: 24 hours, 7 days, 30 days, 90 days
+
+## Security report
+
+The **Security Report** provides a visual before/after comparison:
+
+- **Baseline results** — How your model performs without the firewall
+- **Firewall results** — How your model performs with firewall protection
+- Per-prompt pass/fail comparison table
+- Animated security score counters
+- Compliance panel showing regulatory impact
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Evaluation" icon="check-double" href="/evaluation">
+    Run security evaluations to test your model.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Track production usage with SDK monitoring.
+  </Card>
+</CardGroup>

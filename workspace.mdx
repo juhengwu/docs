@@ -3,56 +3,75 @@ title: "Workspace"
 description: "How workspaces organize projects, people, and environments."
 ---
 
-A workspace is the top-level boundary in Know Your AI. It groups datasets, evaluations, and monitoring views for a single product or project.
+A workspace is the top-level boundary in Know Your AI. It groups products, datasets, evaluations, and monitoring views for a single project or team.
 
 ## What belongs in a workspace
 
-- One AI product or feature area
-- Shared datasets and evaluation logic
-- Team members and access controls
-- Environment-specific settings
+- One or more AI products (Website, API, or Streaming API)
+- Shared datasets and evaluation configurations
+- Team members with role-based access controls
+- Quota allocation and usage tracking
 
-## Environments
+## Workspace tiers
 
-Use environments to prevent accidental production changes and keep results clear.
+Workspaces are organized by tier, which determines available features and quotas.
 
-| Environment | Typical use |
+| Tier | Features |
 | --- | --- |
-| Dev | Early experiments and rubric drafts |
-| Staging | Release candidates and pre-prod validation |
-| Prod | Live monitoring and compliance reporting |
+| Free | Basic evaluation runs, limited quota |
+| Pro | Extended quota, access to Pro datasets, advanced features |
+| Enterprise | Custom limits, priority support, full compliance reporting |
 
 ## Roles and permissions
 
-Common workspace roles include:
+Each workspace member has one of four roles:
 
-- **Admin**: manage settings, members, and permissions
-- **Editor**: create and run evaluations
-- **Reviewer**: annotate results, approve releases
-- **Viewer**: read-only access for stakeholders
+| Role | Capabilities |
+| --- | --- |
+| **Owner** | Full access including delete workspace, manage billing |
+| **Admin** | Manage members, products, all operations except delete workspace |
+| **Developer** | Run evaluations, compose tests, operate within products |
+| **Viewer** | Read-only access (view test history, tracing, overview — no operations) |
+
+## Invitations
+
+Invite team members by email with a specific role. Invitations can be:
+
+- **Pending** — Waiting for the recipient to respond
+- **Accepted** — Member has joined the workspace
+- **Declined** — Recipient declined the invitation
+- **Expired** — Invitation was not accepted in time
+
+## Usage and quotas
+
+Each workspace has a quota allocation that resets monthly. Track usage in the **Usage & Limit** page:
+
+- Total allowed evaluation runs per month
+- Current usage with reset date
+- Usage ledger showing per-run deductions
 
 ## Workspace setup checklist
 
 <Steps>
   <Step title="Name and scope the workspace">
-    Match the scope to a product or AI feature so results are actionable.
+    Match the scope to a product or team so results are actionable.
   </Step>
   <Step title="Invite the right people">
-    Include product, ML, QA, and compliance stakeholders early.
+    Add product, ML, security, and compliance stakeholders. Assign roles appropriately.
   </Step>
-  <Step title="Define environments">
-    Configure dev/staging/prod to align with your release flow.
+  <Step title="Create your first product">
+    Add a product (Website, API, or Streaming API) and follow the onboarding roadmap.
   </Step>
-  <Step title="Create a baseline dataset">
-    Use a representative dataset to anchor future comparisons.
+  <Step title="Add datasets">
+    Browse the Dataset Marketplace or upload your own datasets.
   </Step>
 </Steps>
 
 ## Best practices
 
-- Keep one workspace per product line to avoid mixing metrics
-- Store baseline evaluations before any major model change
-- Document ownership for each evaluation and dashboard
+- Keep one workspace per product line or team to avoid mixing metrics
+- Use the quota dashboard to monitor evaluation run usage
+- Assign the minimum role needed — use Viewer for stakeholders who only need read access
 
 ## Related docs
 

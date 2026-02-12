@@ -1,78 +1,106 @@
 ---
 title: "Get started"
-description: "Create your first workspace, evaluation, and monitoring view."
+description: "Create your first workspace, add a product, and run a security evaluation."
 ---
 
-This guide gets you from zero to your first offline evaluation run with Know Your AI.
+This guide gets you from zero to your first evaluation run with Know Your AI.
 
 <Info>
   **What you'll need**
-  - A Know Your AI account
-  - Access to the product API you want to evaluate
-  - A use case you want to measure (quality, safety, or compliance)
+  - A Know Your AI account (sign up at [knowyourai.hydrox.ai](https://knowyourai.hydrox.ai))
+  - Access to the AI product you want to evaluate (website URL or API endpoint)
 </Info>
 
 ## 1) Create a workspace
 
-Workspaces keep data, evaluations, and access controls isolated by project.
+Workspaces keep products, datasets, evaluations, and access controls isolated by project.
 
 <Steps>
   <Step title="Name the workspace">
-    Choose a clear project name like “Customer Support Copilot”.
+    Choose a clear project name like "Customer Support Copilot".
   </Step>
   <Step title="Add members">
-    Invite teammates and assign roles (admin, editor, reviewer, viewer).
+    Invite teammates and assign roles: **owner**, **admin**, **developer**, or **viewer**.
   </Step>
 </Steps>
 
-## 2) Connect your product
+## 2) Create a product
 
-Choose a dataset from the Prompt Market and connect it to your product.
+A product represents the AI system you want to evaluate.
 
 <Steps>
-  <Step title="Pick a dataset">
-    In **Product**, choose a dataset from the Prompt Market. These include community attack prompts,
-    attack methods, and benchmarks such as Humanity’s Last Exam.
+  <Step title="Choose a product type">
+    Select the type that matches your AI system:
+    - **Website** — A web-based chatbot or AI UI (evaluated via browser automation)
+    - **API** — A standard REST API endpoint (OpenAI-compatible or custom)
+    - **Streaming API** — A streaming API endpoint
   </Step>
-  <Step title="Connect your API">
-    Link your product endpoint so we can run the dataset against your model for offline evaluation.
-  </Step>
-  <Step title="Confirm the connection">
-    Save the product connection so the evaluation can run with the selected dataset.
+  <Step title="Name and configure">
+    Give your product a name and follow the onboarding roadmap.
   </Step>
 </Steps>
 
-## 3) Run your first evaluation
+## 3) Select datasets
 
-Run the dataset through your product and score the results.
+Choose datasets to evaluate your product against.
 
 <Steps>
-  <Step title="Choose a judge">
-    Use **LLM as the Judge**, **Human Annotate**, or both.
+  <Step title="Browse the Marketplace">
+    In **Dataset Marketplace**, browse public datasets covering attack prompts, safety tests, and benchmarks.
   </Step>
-  <Step title="Run the evaluation">
-    Start the offline evaluation to collect model responses and scores.
-  </Step>
-  <Step title="Review issues and risks">
-    We analyze the responses and surface the key problems and risks found in the run.
+  <Step title="Or upload your own">
+    In **Workspace Datasets**, upload your own dataset as JSON or CSV via drag-and-drop.
   </Step>
 </Steps>
 
-## 4) Share results
+## 4) Connect your product
 
-Use the evaluation report to align on improvements and next steps.
+<Steps>
+  <Step title="Open the Connect modal">
+    In your product page, click **Connect** to link your AI system.
+  </Step>
+  <Step title="Configure the connection">
+    - **API products**: Enter your API endpoint and authentication token (OpenAI-compatible or custom format)
+    - **Website products**: Enter the URL and let Browser-Use auto-detect input/response selectors
+  </Step>
+</Steps>
 
-- Review the scored examples and annotations
-- Track the risks that matter to your product
-- Export findings for your team
+## 5) Run your first evaluation
+
+<Steps>
+  <Step title="Compose a test">
+    Go to **Compose Evaluation**, select your datasets, configure the prompt count, and start the run.
+  </Step>
+  <Step title="Watch execution">
+    Follow along in the **real-time console** as prompts are sent, responses received, and each is judged.
+    For website products, you can watch the browser automation live via VNC.
+  </Step>
+  <Step title="Review results">
+    View the security score, per-prompt pass/fail results, judge analysis, and compliance reports.
+  </Step>
+</Steps>
+
+## 6) (Optional) Set up monitoring
+
+Integrate the `@know-your-ai` SDK to track production AI usage.
+
+- Install the SDK and configure your **DSN** (Data Source Name) from the product settings
+- Track requests, tokens, cost, latency, and errors in the **Monitoring Dashboard**
+- Debug individual interactions in the **Tracing** view
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="How to use it" icon="wand-magic" href="/how-to-use">
-    Operational best practices and workflows.
+  <Card title="Datasets" icon="database" href="/datasets">
+    Learn about attack methods and dataset categories.
   </Card>
   <Card title="Evaluation" icon="check-double" href="/evaluation">
-    Deep dive into evaluation methods.
+    Deep dive into evaluation methods and scoring.
+  </Card>
+  <Card title="Monitoring" icon="chart-line" href="/monitoring">
+    Set up SDK monitoring and tracing.
+  </Card>
+  <Card title="Compliance" icon="shield-check" href="/compliance">
+    Understand compliance analysis and evidence trails.
   </Card>
 </CardGroup>

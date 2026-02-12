@@ -1,82 +1,106 @@
 ---
 title: "Evaluation"
-description: "How Know Your AI scores quality, safety, and compliance."
+description: "How Know Your AI scores security, safety, and compliance."
 ---
 
-Evaluations turn raw model outputs into measurable signals. They help you compare versions, enforce policy, and prevent regressions.
+Evaluations turn raw model outputs into measurable security and safety signals. They help you find vulnerabilities, enforce policy, and track compliance.
 
 ## Evaluation building blocks
 
 Every evaluation is made of four core parts:
 
-1. **Dataset**: the prompts and responses to evaluate
-2. **Rubric**: the criteria that define success
-3. **Scorer**: automated metric, LLM-judge, or human review
-4. **Thresholds**: pass/fail rules and alert triggers
+1. **Datasets**: the attack prompts, safety tests, or benchmarks to send
+2. **Judgment Model**: the LLM used to judge responses (e.g., `gemini-2.0-flash`, `hydrox-firewall`)
+3. **Judgment Prompt**: the prompt that tells the judge how to score each response
+4. **Threshold**: the pass/fail cutoff for vulnerability detection
 
-## How we run evaluations
+## How evaluations run
 
 Know Your AI follows a consistent pipeline so results are reproducible and auditable.
 
 <Steps>
-  <Step title="Normalize the data">
-    Inputs are mapped into a consistent schema so every run uses the same fields.
+  <Step title="Select datasets">
+    Choose attack prompts from the Marketplace or use your own datasets.
   </Step>
-  <Step title="Apply the rubric">
-    Each output is scored against the rubric criteria with clear definitions.
+  <Step title="Compose the test">
+    Configure the number of prompts, select datasets, and start the evaluation run.
   </Step>
-  <Step title="Aggregate scores">
-    Scores roll up into overall metrics, weighted by priority and thresholds.
+  <Step title="Send prompts">
+    Each prompt is sent to your product (via API call or browser automation for websites).
   </Step>
-  <Step title="Review exceptions">
-    Outliers and failures are routed for human review or follow-up.
+  <Step title="Judge responses">
+    The judgment model scores each response, producing: `isVulnerable`, `confidenceScore`, and `judgeAnalysis`.
   </Step>
-  <Step title="Store evidence">
-    Every run stores the data, rubric version, and results for traceability.
+  <Step title="Analyze compliance">
+    Responses are automatically analyzed for CCPA/CPRA compliance violations.
+  </Step>
+  <Step title="Store results">
+    Every run stores prompts, responses, scores, screenshots, and compliance evidence.
   </Step>
 </Steps>
 
-## Evaluation types
+## Run types
 
 | Type | Best for | Example |
 | --- | --- | --- |
-| Automated metrics | Deterministic checks | Regex, exact match, toxicity scores |
-| LLM-judge rubric | Complex, subjective criteria | Helpfulness, policy compliance |
-| Human review | High-stakes decisions | Safety review or legal sign-off |
+| Security Test | Red-teaming with attack prompts | Jailbreak, prompt injection, data extraction |
+| Evaluation | Safety and quality assessment | Compliance checks, safety tests |
+| Benchmark | Standardized performance testing | Accuracy, robustness, hallucination tests |
 
-## Designing a rubric
+## Attack categories
 
-A strong rubric is specific, measurable, and aligned to business goals.
+Know Your AI covers seven core attack categories:
 
-- Use 3–6 criteria with clear definitions
-- Assign weights to prioritize what matters most
-- Provide positive and negative examples
+| Category | Description |
+| --- | --- |
+| Jailbreak | Attempts to bypass safety guardrails |
+| Prompt Injection | Manipulating the model's instructions |
+| Data Extraction | Extracting training data or system prompts |
+| Harmful Content | Generating dangerous or illegal content |
+| PII Leakage | Exposing personal identifiable information |
+| Bias | Detecting discriminatory outputs |
+| Hallucination | Generating false or fabricated information |
 
-<Note>
-  **Tip:** Start simple. Add criteria only when you can explain why they matter.
-</Note>
+## Website evaluation
+
+For website products, evaluations run in a Docker container with:
+
+- **Brave browser** with Browser-Use automation
+- **VNC viewer** for live browser control and observation
+- **Gemini Vision** for automatic login detection
+- **Human-in-the-loop** — auto-pauses when login is required, waits for user via VNC
+- **Screenshot capture** throughout the evaluation
+- **Session recording** for playback
 
 ## Running evaluations
 
 You can run evaluations in three ways:
 
-- **Ad-hoc runs** for rapid experimentation
-- **Scheduled runs** for continuous monitoring
-- **Release gates** that block deployment if metrics fail
+- **Compose Evaluation** for ad-hoc runs with selected datasets and prompt counts
+- **Scheduled runs** using cron-based scheduling (hourly, daily, weekly, monthly, or custom)
+- **Evaluation Market** templates for pre-configured safety, compliance, quality, and performance evaluations
 
 ## Interpreting results
 
-Look beyond a single score:
+Each evaluation run produces:
 
-- Compare to a baseline evaluation
-- Review the bottom 5–10% of results
-- Track trends over time, not just snapshots
+- **Security score** — Overall vulnerability percentage with animated chart
+- **Per-prompt results** — Pass/fail for each prompt with judge analysis
+- **Compliance report** — CCPA/CPRA violation analysis with evidence
+- **Screenshots** — Browser screenshots for website evaluations
+- **Execution console** — Real-time streaming logs of prompts, responses, and judgments
+
+## Run status lifecycle
+
+Evaluation runs progress through these stages:
+
+`pending` → `queued` → `container_creating` → `running` → `completed` or `failed`
 
 ## Common pitfalls
 
-- Evaluating with biased or unrepresentative data
-- Using a rubric that is too vague to be reproducible
-- Ignoring distribution shifts between staging and prod
+- Using too few prompts for a meaningful security assessment
+- Not connecting the product API correctly before running
+- Ignoring compliance violations in the per-run reports
 
 ## Related docs
 

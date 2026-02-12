@@ -1,81 +1,111 @@
 ---
 title: "How to use Know Your AI"
-description: "Recommended workflows from experiment to production."
+description: "Recommended workflows from setup to production monitoring."
 ---
 
-This page outlines a practical workflow for teams using Know Your AI day-to-day.
+This page outlines practical workflows for teams using Know Your AI day-to-day.
 
-## 1) Define success
+## 1) Set up your workspace
 
-Start by aligning on what matters most:
+Start by creating a workspace and inviting your team.
 
-- Business outcomes (e.g., resolution rate, CSAT)
-- Safety and compliance requirements
-- Quality expectations for end users
+- Name it after your product or project
+- Assign roles: **owner** for the lead, **admin** for managers, **developer** for engineers, **viewer** for stakeholders
+- Check your quota allocation in **Usage & Limit**
 
-## 2) Build a representative dataset
+## 2) Create and connect products
 
-Use a mix of:
+Add each AI system you want to evaluate as a product.
 
-- Real production logs
-- Edge cases and stress tests
-- Known failures from previous releases
+- **Website products**: Enter the URL. Browser-Use will auto-detect input/response selectors using Gemini Vision. You can watch evaluations live via VNC.
+- **API products**: Enter your endpoint URL and authentication token. Supports OpenAI-compatible and custom APIs.
+- **Streaming API products**: Configure for streaming response endpoints.
 
-## 3) Design evaluations
+Follow the **onboarding roadmap** on each product page: Select Datasets → Connect API → Start Test → Complete.
 
-Create a rubric that matches your goals.
+## 3) Build your dataset library
 
-- Keep criteria specific and testable
-- Include a minimum bar for release
-- Add reviewer notes for unclear cases
+Use a mix of sources:
 
-## 4) Compare model versions
+- Browse the **Dataset Marketplace** for community and system-curated attack prompts
+- Upload custom datasets (JSON/CSV) in **Workspace Datasets** with input, golden answer, and knowledge fields
+- Cover the key attack categories: jailbreak, prompt injection, data extraction, harmful content, PII leakage, bias, hallucination
 
-Use the evaluation report to compare:
+## 4) Run security evaluations
 
-- Current production baseline
-- Candidate models or prompt changes
-- Variations in cost and latency
+Compose and execute evaluation runs.
 
-## 5) Ship with guardrails
+- Go to **Compose Evaluation** and select your datasets
+- Configure the prompt count (or use random sampling)
+- Start the run and watch the **real-time console** for streaming execution logs
+- For website products, use the **VNC viewer** for live browser observation
 
-Before release:
+## 5) Review results
 
-- Run evaluations in staging
-- Review the worst-scoring examples
-- Set release gates for critical metrics
+Each evaluation run produces:
 
-## 6) Monitor continuously
+- **Security score** with vulnerability percentage
+- **Per-prompt pass/fail** with judge analysis explaining each decision
+- **Compliance report** with CCPA/CPRA violation analysis
+- **Screenshots** captured during browser automation (website products)
+- **Execution logs** with prompt, response, and judgment details
 
-After release:
+## 6) Set up scheduled evaluations
 
-- Schedule evaluations to run daily
-- Set alerts for safety or quality drops
-- Share dashboards with stakeholders
+Automate recurring security testing:
 
-## Weekly cadence (example)
+- Go to **Scheduled Tasks** in your product sidebar
+- Configure schedules: hourly, daily, weekly, monthly, or custom cron
+- Enable/disable schedules as needed
+- Track scheduled run results in **Test History**
 
-| Day | Activity |
+## 7) Integrate SDK monitoring
+
+Deploy the `@know-your-ai` SDK to monitor your AI system in production:
+
+- Install the SDK and configure your **DSN** from product settings
+- Monitor in the **Monitoring Dashboard**: requests, tokens, cost, latency, errors
+- Debug issues in the **Tracing** view with span-tree visualization
+- Track token usage trends over time
+
+## 8) Enable the firewall
+
+Add real-time protection with the firewall:
+
+- Generate a **Firewall API key** in your product's Firewall settings
+- Integrate the firewall SDK into your application
+- Monitor validations in **Firewall Logs** with risk categorization
+- Track token usage in **Firewall Token Usage**
+
+## 9) Track compliance
+
+Stay on top of regulatory requirements:
+
+- Review the **Compliance** dashboard for aggregated violation counts
+- Explore per-run compliance reports with evidence
+- Track CCPA/CPRA, EU AI Act, and NIST AI RMF coverage
+- Use the **Security Report** for baseline vs. firewall comparisons
+
+## Product sidebar reference
+
+When inside a product, the sidebar provides:
+
+| Section | Pages |
 | --- | --- |
-| Monday | Pull latest production logs and refresh datasets |
-| Tuesday | Run evaluations on candidate model versions |
-| Wednesday | Review results, adjust rubrics, update prompts |
-| Thursday | Launch staged release with monitoring enabled |
-| Friday | Share monitoring report with the team |
-
-## Collaboration tips
-
-- Keep rubrics versioned and documented
-- Leave comments on failed examples to build shared context
-- Use one workspace per product for clarity
+| Main | Product Home, Compliance, Metrics |
+| Datasets | Workspace Datasets, Marketplace |
+| Monitoring | Monitoring Dashboard, Tracing |
+| Evaluation | Compose Evaluation, Evaluations, Evaluation Market, Scheduled Tasks, History, Library |
+| Firewall | Firewall, Logs, Token Usage |
+| System | Documentation, Product Settings |
 
 ## Related docs
 
 <CardGroup cols={2}>
   <Card title="Get started" icon="rocket" href="/quickstart">
-    Set up the first evaluation.
+    Set up your first evaluation.
   </Card>
-  <Card title="Monitoring" icon="chart-line" href="/monitoring">
-    Keep quality stable after launch.
+  <Card title="Features" icon="list" href="/features">
+    Full feature reference.
   </Card>
 </CardGroup>

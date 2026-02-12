@@ -1,15 +1,89 @@
 ---
 title: "Features"
-description: "Overview of key features in Know Your AI"
+description: "Overview of all features in Know Your AI"
 ---
 
-## Key Features
+## Core platform
 
-- Datasets: store prompts, responses, metadata
-- Evaluations: rubrics, LLM-judge, human review
-- Monitoring: dashboards, alerts, drift detection
-- Evidence: audit trails and versioned runs
+| Feature | Description |
+| --- | --- |
+| **Workspaces** | Multi-tenant project isolation with tiers (Free, Pro, Enterprise), quotas, and role-based access |
+| **Products** | Three product types — Website, API, and Streaming API — each with onboarding roadmap and connection wizard |
+| **Members & invitations** | Invite by email with roles (owner, admin, developer, viewer) and invitation lifecycle tracking |
+| **Usage & quotas** | Monthly quota allocation with usage ledger and reset tracking |
 
-<Card title="Evaluation deep dive" href="/evaluation">
-  Learn more about building reliable evaluations.
-</Card>
+## Datasets
+
+| Feature | Description |
+| --- | --- |
+| **Dataset Marketplace** | Browse and add public/community datasets with Pro tier support |
+| **Workspace Datasets** | Upload JSON/CSV datasets via drag-and-drop with input, golden answer, and knowledge fields |
+| **Attack datasets** | 7 attack categories and 15+ attack methods (GCG, ABJ, PAIR, DAN, CIPHER, etc.) |
+| **Dataset types** | Default, A/B Test, and GroundTruth datasets |
+| **Random sampling** | Configure prompt count for evaluation runs |
+
+## Evaluations
+
+| Feature | Description |
+| --- | --- |
+| **Compose Evaluation** | Select datasets, configure prompt count, and launch evaluation runs |
+| **LLM-as-Judge** | Configurable judgment model and prompt with vulnerability scoring |
+| **Security testing** | Red-team your AI with attack prompts and get per-prompt pass/fail |
+| **Website evaluation** | Browser automation with Brave, VNC live viewer, and screenshot capture |
+| **Real-time console** | Streaming execution logs with prompt/response/judgment bubbles |
+| **Scheduled evaluations** | Cron-based scheduling (hourly, daily, weekly, monthly, custom) with enable/disable |
+| **Evaluation Market** | Browse pre-configured evaluation templates (Safety, Compliance, Quality, Performance) |
+| **Run history** | Full test run history with sortable/filterable table |
+| **Screenshot library** | Browse screenshots from browser-use evaluations |
+
+## Monitoring & tracing
+
+| Feature | Description |
+| --- | --- |
+| **SDK integration** | `@know-your-ai` SDK with DSN for automatic event capture |
+| **Monitoring dashboard** | Requests, tokens, cost, latency, errors, provider/model distribution |
+| **Tracing** | Span-tree visualization with d3 — supports generation, agent, tool, chain, retriever, evaluator, guardrail spans |
+| **Token usage charts** | Time-series input/output/total token charts with configurable granularity |
+
+## Firewall
+
+| Feature | Description |
+| --- | --- |
+| **Firewall API keys** | Generate and manage firewall API keys per product |
+| **Validation logs** | History of all firewall validations with risk categorization, score, and reason |
+| **Token usage** | Input/output token tracking with time-series analytics |
+
+## Compliance
+
+| Feature | Description |
+| --- | --- |
+| **CCPA/CPRA analysis** | Automated compliance judgment with 3-tier violation scoring (Direct, Indirect, Ancillary) |
+| **Severity levels** | None, low, medium, high, critical severity classification |
+| **Evidence store** | Persistent evidence records with full prompt/response pairs and legal references |
+| **Regulatory coverage** | EU AI Act, NIST AI RMF coverage with baseline vs. firewall comparison |
+| **Per-run reports** | Detailed compliance report for each evaluation run |
+
+## AI quality metrics
+
+Nine quality dimensions (some coming soon):
+
+- Overview, Hallucination Risk, Task Fulfillment, Reasoning Quality, Math & Calculation, Creativity, Empathy, Style & Personality, Safety & Risk
+
+## Additional features
+
+| Feature | Description |
+| --- | --- |
+| **AI chat** | Built-in Gemini chat panel with session management and context-aware conversations |
+| **Security report** | Visual before/after comparison showing baseline vs. firewall results |
+| **Support** | In-app bug reports, attack reports, billing issues, and feature requests |
+| **Internationalization** | Multi-language UI support |
+| **Theme** | Light and dark mode |
+
+<CardGroup cols={2}>
+  <Card title="Evaluation deep dive" href="/evaluation">
+    Learn more about LLM-as-Judge and security testing.
+  </Card>
+  <Card title="Monitoring deep dive" href="/monitoring">
+    Learn about SDK integration and tracing.
+  </Card>
+</CardGroup>

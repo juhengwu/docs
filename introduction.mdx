@@ -3,9 +3,9 @@ title: "Welcome"
 description: "Get to know Know Your AI and ship safer, higher-quality AI experiences."
 ---
 
-Know Your AI is a security and evaluation platform built to help teams understand, test, and improve AI systems end-to-end.
-Unlike tools that only surface metrics, Know Your AI helps you plan evaluation workflows, execute them at scale, and deliver
-clear, actionable findings from datasets, model runs, and human review.
+Know Your AI is a security, evaluation, and monitoring platform built to help teams understand, test, and protect AI systems end-to-end.
+It combines attack-driven datasets, automated LLM judging, compliance analysis, SDK-based monitoring, and a firewall —
+all in one place — so teams can ship with confidence.
 
 This site contains the product overview, quickstart guides, and feature documentation to get your team up and running.
 
@@ -15,25 +15,29 @@ This site contains the product overview, quickstart guides, and feature document
   href="/quickstart"
   horizontal
 >
-  Create your first workspace, connect a product, and run an offline evaluation.
+  Create your first workspace, connect a product, and run a security evaluation.
 </Card>
 
 ## What is Know Your AI?
 
-Know Your AI is an evaluation and monitoring platform for AI applications. It centralizes:
+Know Your AI is an evaluation, monitoring, and compliance platform for AI applications. It centralizes:
 
-- **Workspaces** for teams and projects
-- **Datasets** from the Prompt Market and your own uploads
-- **Evaluations** to score quality, safety, and compliance
-- **Monitoring** dashboards and alerts
-- **Evidence** trails for audits and reviews
+- **Workspaces** for organizing teams, products, and access controls
+- **Products** representing the AI systems you evaluate (Website, API, or Streaming API)
+- **Datasets** from the Marketplace and your own uploads — covering attack prompts, safety tests, and benchmarks
+- **Evaluations** with configurable LLM-as-Judge scoring and automated compliance analysis
+- **Monitoring** with SDK-based dashboards for requests, tokens, latency, cost, and errors
+- **Tracing** with span-tree visualization for debugging AI interactions
+- **Firewall** for real-time input/output validation with risk categorization
+- **Compliance** dashboards for CCPA/CPRA violation tracking with evidence trails
 
 ## Who is it for?
 
-- **Product teams** validating new model releases
-- **ML/AI engineers** testing prompts and model variants
-- **Risk & compliance** teams tracking policies
-- **QA and support** teams monitoring regressions
+- **Product teams** validating new model releases and prompt changes
+- **ML/AI engineers** red-teaming models with attack datasets
+- **Security teams** testing for jailbreaks, prompt injection, and data extraction
+- **Risk & compliance** teams tracking CCPA/CPRA, EU AI Act, and NIST AI RMF policies
+- **Engineering teams** monitoring production AI with SDK integration
 
 ## Core concepts at a glance
 
@@ -45,27 +49,30 @@ Know Your AI is an evaluation and monitoring platform for AI applications. It ce
     Understand project boundaries, roles, and access controls.
   </Card>
   <Card title="Evaluation" icon="check-double" href="/evaluation">
-    Learn how we score quality, safety, and policy compliance.
+    Learn how LLM-as-Judge scoring and security testing work.
   </Card>
   <Card title="Monitoring" icon="chart-line" href="/monitoring">
-    Track live performance with dashboards and alerts.
+    Track live performance with SDK dashboards and tracing.
   </Card>
 </CardGroup>
 
 ## Typical workflow
 
 <Steps>
-  <Step title="Select a dataset">
-    Choose a dataset from the Prompt Market that matches your risk profile.
+  <Step title="Create a product">
+    Add your AI system as a Website, API, or Streaming API product in your workspace.
   </Step>
-  <Step title="Connect your product">
-    Link your product API so we can run offline evaluations.
+  <Step title="Select datasets">
+    Choose attack and benchmark datasets from the Marketplace or upload your own.
   </Step>
-  <Step title="Run and review">
-    Use LLM-as-judge and human review to surface issues and risks.
+  <Step title="Connect and evaluate">
+    Connect your product endpoint and run security evaluations with LLM-as-Judge scoring.
+  </Step>
+  <Step title="Review results">
+    Analyze security scores, per-prompt pass/fail, compliance reports, and screenshots.
   </Step>
   <Step title="Monitor in production">
-    Track drift and quality in real time with alerts and reports.
+    Integrate the SDK to track requests, tokens, latency, and errors in real time.
   </Step>
 </Steps>
 
@@ -76,9 +83,9 @@ Know Your AI is an evaluation and monitoring platform for AI applications. It ce
     Launch your first evaluation.
   </Card>
   <Card title="Datasets" icon="database" href="/datasets">
-    Browse curated prompt datasets and attack methods.
+    Browse curated attack datasets and methods.
   </Card>
   <Card title="Monitoring" icon="radar" href="/monitoring">
-    Stay on top of model health.
+    Track model health with SDK monitoring.
   </Card>
 </CardGroup>

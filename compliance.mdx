@@ -1,21 +1,92 @@
 ---
 title: "Compliance"
-description: "Compliance-ready evaluation workflows and audit evidence."
+description: "CCPA/CPRA compliance analysis, regulatory coverage, and evidence trails."
 ---
 
-Know Your AI helps teams build compliance-ready evaluation workflows with clear evidence trails.
-Use evaluations, human review, and monitoring results to document decisions and reduce risk.
+Know Your AI provides automated compliance analysis for every evaluation run, with persistent evidence storage
+and regulatory coverage reporting.
 
-## What you can do
+## CCPA/CPRA compliance analysis
 
-- Maintain audit-ready evaluation history
-- Track policy and safety issues across releases
-- Share evidence with legal, security, and leadership teams
+Every evaluation run automatically analyzes AI responses for CCPA/CPRA compliance violations.
 
-## Typical workflow
+### Three-tier analysis
 
-1. Run offline evaluations on critical datasets.
-2. Use **LLM as the Judge** and **Human Annotate** for review.
-3. Export findings to support risk and compliance reviews.
+Violations are classified into three tiers based on regulatory relevance:
 
-If you need custom compliance reporting, reach out to the Know Your AI team.
+| Tier | Name | Description |
+| --- | --- | --- |
+| Tier 1 | Direct relevance | Responses that directly handle personal data or privacy requests |
+| Tier 2 | Indirect relevance | Responses that indirectly impact data privacy practices |
+| Tier 3 | Ancillary relevance | Responses with peripheral privacy implications |
+
+### Severity levels
+
+Each violation is assigned a severity level:
+
+- **None** — No compliance concern
+- **Low** — Minor issue, informational
+- **Medium** — Moderate concern requiring review
+- **High** — Significant violation requiring action
+- **Critical** — Severe violation requiring immediate remediation
+
+### Per-prompt evidence
+
+For each flagged response, the system records:
+
+- The violating text snippet
+- Category of the violation
+- Detailed analysis explaining the issue
+- Legal reference citing the relevant regulation
+- Full prompt and response pair
+
+## Regulatory coverage
+
+The compliance dashboard covers multiple regulatory frameworks:
+
+| Framework | Coverage |
+| --- | --- |
+| **CCPA/CPRA** | Per-run violation analysis with 3-tier scoring |
+| **EU AI Act** | Regulatory alignment assessment |
+| **NIST AI RMF** | Risk management framework evaluation |
+
+The **Security Report** provides a side-by-side comparison showing baseline results vs. firewall-protected results,
+helping teams quantify the impact of safety measures.
+
+## Compliance dashboard
+
+Each product has a dedicated **Compliance** page that aggregates:
+
+- Total violation counts by tier and severity
+- Regulation-level breakdown summaries
+- Dataset-level risk summaries
+- Per-run compliance reports with evidence explorer
+
+## Compliance evidence store
+
+All compliance findings are persistently stored as **ComplianceEvidence** records, including:
+
+- Full prompt and response text
+- Violation category, tier, and severity
+- Legal analysis and regulatory references
+- Linked to specific evaluation runs for traceability
+
+## Workflow
+
+1. Run an evaluation with attack or compliance datasets.
+2. The system automatically judges each response for CCPA/CPRA compliance.
+3. View the **Compliance Report** for the run with per-category violation breakdown.
+4. Explore individual violations in the evidence panel.
+5. Track trends across runs in the product **Compliance** dashboard.
+6. Export findings for legal, security, and leadership reviews.
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Evaluation" icon="check-double" href="/evaluation">
+    Understand how evaluations generate compliance evidence.
+  </Card>
+  <Card title="Features" icon="list" href="/features">
+    See the full feature list including firewall and monitoring.
+  </Card>
+</CardGroup>

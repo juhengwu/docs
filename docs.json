@@ -51,11 +51,28 @@
             "pages": [
               "product",
               "workspace",
-              "evaluation",
-              "monitoring",
-              "compliance",
-              "how-to-use",
               "features"
+            ]
+          },
+          {
+            "group": "Evaluation & Datasets",
+            "pages": [
+              "evaluation",
+              "datasets"
+            ]
+          },
+          {
+            "group": "Monitoring & Security",
+            "pages": [
+              "monitoring",
+              "firewall",
+              "compliance"
+            ]
+          },
+          {
+            "group": "Guides",
+            "pages": [
+              "how-to-use"
             ]
           }
         ]
