@@ -1,0 +1,97 @@
+---
+title: "Model Evaluation"
+description: "Red-team your AI model via API with automated attack datasets."
+---
+
+<img src="/images/EvaluationRun-page-api.png" alt="Model Evaluation run page" style={{ borderRadius: '0.5rem' }} />
+
+Model Evaluation (API Mode) lets you connect your AI model's API endpoint and automatically run red-team testing against it. Know Your AI sends attack prompts directly to your model's API, collects responses, and uses an LLM-as-Judge to score each response for vulnerabilities.
+
+## How it works
+
+<Steps>
+  <Step title="Connect your API endpoint">
+    In your product settings, configure the API connection by providing your model's endpoint URL, request format, and response selectors. Know Your AI supports REST APIs, streaming APIs, and custom request/response schemas.
+  </Step>
+  <Step title="Select datasets">
+    Choose from the Dataset Marketplace or use your own uploaded datasets. Datasets contain attack prompts across categories like jailbreak, prompt injection, data extraction, harmful content, PII leakage, bias, and hallucination.
+  </Step>
+  <Step title="Configure the evaluation">
+    Set the number of prompts to test, select the judgment model (e.g., `gemini-2.0-flash`), and configure the judgment prompt and vulnerability threshold.
+  </Step>
+  <Step title="Run the evaluation">
+    Know Your AI sends each prompt to your API endpoint, collects the response, and passes the prompt-response pair to the judgment model for scoring.
+  </Step>
+  <Step title="Review results">
+    View per-prompt pass/fail verdicts, confidence scores, judge analysis, and an overall security score for the run.
+  </Step>
+</Steps>
+
+## When to use Model Evaluation
+
+Model Evaluation is ideal when:
+
+- You have a **REST API** or **streaming API** endpoint exposing your AI model
+- You want to test the model **directly** without UI interaction
+- You need **high-throughput** testing with large datasets
+- You want to benchmark model behavior **before deployment**
+
+## Supported product types
+
+| Product type | Description |
+| --- | --- |
+| **API** | Standard REST API endpoint that accepts prompts and returns responses |
+| **Streaming API** | Server-sent events (SSE) or streaming endpoints |
+
+## API connection configuration
+
+To run a Model Evaluation, your product must have a valid API connection configured:
+
+- **Endpoint URL** — the URL of your model's API
+- **Request format** — how prompts are sent (JSON body structure, headers, authentication)
+- **Response selector** — how to extract the model's response from the API response
+
+## Evaluation pipeline
+
+```
+Select Datasets → Configure Prompts → Send to API → Judge Responses → Store Results
+```
+
+For each prompt in the selected datasets:
+
+1. The prompt is formatted according to your API's request schema
+2. A request is sent to your model's endpoint
+3. The response is extracted using your configured response selector
+4. The judgment model evaluates the prompt-response pair
+5. A verdict is produced: `isVulnerable`, `confidenceScore`, and `judgeAnalysis`
+
+## Results & insights
+
+After a Model Evaluation run completes, you get:
+
+- **Security score** — an overall vulnerability percentage across all tested prompts
+- **Per-prompt results** — individual pass/fail verdicts with detailed judge analysis
+- **Compliance report** — automated CCPA/CPRA violation analysis with evidence
+- **Real-time console** — streaming execution logs showing each prompt, response, and judgment as they happen
+- **Run history** — all past runs are stored and can be compared over time
+
+## Scheduling
+
+You can schedule Model Evaluations to run automatically:
+
+- **Hourly**, **daily**, **weekly**, or **monthly** intervals
+- **Custom cron expressions** for fine-grained control
+- Enable or disable schedules at any time
+
+Scheduled evaluations help you continuously monitor your model's security posture and catch regressions early.
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Chatbot Evaluation" icon="globe" href="/chatbot-evaluation">
+    Evaluate live chatbot websites with browser automation.
+  </Card>
+  <Card title="Datasets" icon="database" href="/datasets">
+    Browse attack datasets and upload your own.
+  </Card>
+</CardGroup>

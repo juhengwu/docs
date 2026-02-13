@@ -1,0 +1,124 @@
+---
+title: "Chatbot Evaluation"
+description: "Red-team live chatbot websites using automated browser control."
+---
+
+<img src="/images/EvaluationRun-page-chatbot.png" alt="Chatbot Evaluation run page" style={{ borderRadius: '0.5rem' }} />
+
+Chatbot Evaluation (Website Mode) allows you to evaluate live chatbot websites through end-to-end red-team testing. Instead of calling an API directly, Know Your AI uses a **browser control agent** to open your website in the cloud, interact with your chatbot widget just like a real user would, and capture both the responses and screenshots throughout the process.
+
+## How it works
+
+<Steps>
+  <Step title="Provide your website URL">
+    In your product settings, configure the website URL where your chatbot is deployed, along with the CSS selectors for the chat input field and response area.
+  </Step>
+  <Step title="Select datasets">
+    Choose attack prompts from the Dataset Marketplace or use your own custom datasets.
+  </Step>
+  <Step title="Launch the evaluation">
+    Know Your AI spins up a cloud-based browser environment and deploys a browser control agent to automate the interaction with your chatbot.
+  </Step>
+  <Step title="Automated interaction">
+    The browser control agent navigates to your website, locates the chatbot widget, types each attack prompt, waits for the response, and captures screenshots at every step.
+  </Step>
+  <Step title="Judge responses">
+    Each captured response is passed to the judgment model, which scores it for vulnerabilities, producing `isVulnerable`, `confidenceScore`, and `judgeAnalysis`.
+  </Step>
+  <Step title="Review results">
+    View per-prompt results, screenshots, compliance reports, and an overall security score.
+  </Step>
+</Steps>
+
+## When to use Chatbot Evaluation
+
+Chatbot Evaluation is ideal when:
+
+- Your AI is deployed as a **chatbot widget** embedded on a website
+- You want to test the **full end-to-end user experience**, including UI behavior
+- You need to evaluate how your chatbot handles attacks **in a real browser environment**
+- You want to capture **visual evidence** (screenshots) of chatbot responses
+- Your chatbot requires **authentication or multi-step interactions** before testing
+
+## Browser control agent
+
+Know Your AI uses an intelligent browser control agent to automate chatbot interactions in the cloud:
+
+- **Cloud-based browser** — a full browser instance runs in a secure cloud environment
+- **Automated navigation** — the agent automatically navigates to your website and locates the chatbot widget
+- **Smart interaction** — the agent types prompts, clicks buttons, and waits for responses just like a real user
+- **Login detection** — the system automatically detects if your website requires authentication and can pause for manual login via a live viewer
+- **Live viewer** — watch the browser session in real time through an embedded live preview
+- **Screenshot capture** — the agent captures screenshots at every step of the interaction for visual evidence and audit trails
+
+## Website connection configuration
+
+To run a Chatbot Evaluation, your product must be configured as a Website product type with:
+
+- **Website URL** — the URL where your chatbot is deployed
+- **Input selector** — CSS selector for the chat input field
+- **Response selector** — CSS selector for the chatbot's response area
+- **Submit selector** — CSS selector for the send/submit button (optional)
+
+## Evaluation pipeline
+
+```
+Navigate to Website → Locate Chatbot → Type Prompt → Capture Response & Screenshot → Judge → Store Results
+```
+
+For each prompt in the selected datasets:
+
+1. The browser control agent navigates to your website (or reuses the active session)
+2. The agent locates the chat input using your configured selector
+3. The attack prompt is typed into the input field and submitted
+4. The agent waits for the chatbot to respond and captures the response text
+5. A screenshot is taken of the current browser state
+6. The judgment model evaluates the prompt-response pair
+7. Results, screenshots, and compliance analysis are stored
+
+## Screenshot library
+
+<img src="/images/ScreenshotLibrary.png" alt="Screenshot Library" style={{ borderRadius: '0.5rem' }} />
+
+Every Chatbot Evaluation automatically captures screenshots throughout the testing process. These screenshots are stored in the **Screenshot Library**, which provides:
+
+- **Visual audit trail** — browse all captured screenshots organized by evaluation run and prompt
+- **Per-prompt screenshots** — view the exact browser state when each attack prompt was tested
+- **Full-resolution images** — screenshots are stored in S3 and accessible via presigned URLs
+- **Pagination** — efficiently browse through large collections of screenshots
+- **Evidence for compliance** — screenshots serve as visual evidence for compliance reporting and audit purposes
+
+Access the Screenshot Library from the **Library** tab on any Chatbot Evaluation run page.
+
+## Results & insights
+
+After a Chatbot Evaluation run completes, you get:
+
+- **Security score** — overall vulnerability percentage across all tested prompts
+- **Per-prompt results** — individual pass/fail verdicts with detailed judge analysis
+- **Screenshots** — visual evidence of every chatbot interaction during the evaluation
+- **Compliance report** — automated CCPA/CPRA violation analysis with evidence
+- **Live evaluation replay** — review the browser session through the live viewer
+- **Real-time console** — streaming execution logs showing each prompt, response, and judgment
+- **Run history** — all past runs are stored for comparison and trend analysis
+
+## Scheduling
+
+Like Model Evaluations, Chatbot Evaluations can be scheduled:
+
+- **Hourly**, **daily**, **weekly**, or **monthly** intervals
+- **Custom cron expressions** for fine-grained control
+- Enable or disable schedules at any time
+
+Scheduled chatbot evaluations are especially valuable for monitoring deployed chatbots and detecting regressions caused by model updates or configuration changes.
+
+## Related docs
+
+<CardGroup cols={2}>
+  <Card title="Model Evaluation" icon="code" href="/model-evaluation">
+    Red-team your AI model via direct API testing.
+  </Card>
+  <Card title="Datasets" icon="database" href="/datasets">
+    Browse attack datasets and upload your own.
+  </Card>
+</CardGroup>

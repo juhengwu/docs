@@ -1,32 +1,39 @@
 ---
 title: "Evaluation"
-description: "How Know Your AI scores security, safety, and compliance."
+description: "How Know Your AI evaluates and red-teams your AI products."
 ---
 
-Evaluations turn raw model outputs into measurable security and safety signals. They help you find vulnerabilities, enforce policy, and track compliance.
+<img src="/images/Evaluation-card.png" alt="Evaluation overview" style={{ borderRadius: '0.5rem' }} />
 
-## Evaluation building blocks
+Know Your AI provides two powerful evaluation modes to red-team and assess your AI products. Whether you expose a model through an API or embed a chatbot on your website, Know Your AI can automatically test it for vulnerabilities, safety issues, and compliance gaps.
 
-Every evaluation is made of four core parts:
+## Evaluation modes
 
-1. **Datasets**: the attack prompts, safety tests, or benchmarks to send
-2. **Judgment Model**: the LLM used to judge responses (e.g., `gemini-2.0-flash`, `hydrox-firewall`)
-3. **Judgment Prompt**: the prompt that tells the judge how to score each response
-4. **Threshold**: the pass/fail cutoff for vulnerability detection
+<CardGroup cols={2}>
+  <Card title="Model Evaluation (API Mode)" icon="code" href="/model-evaluation">
+    Connect your model's API endpoint and run automated red-team testing with attack datasets.
+  </Card>
+  <Card title="Chatbot Evaluation (Website Mode)" icon="globe" href="/chatbot-evaluation">
+    Evaluate live chatbot websites using a browser control agent for end-to-end testing.
+  </Card>
+</CardGroup>
 
-## How evaluations run
+## How evaluations work
 
-Know Your AI follows a consistent pipeline so results are reproducible and auditable.
+Every evaluation is built on three core components:
+
+1. **Judgment Model** — the LLM used to judge responses (e.g., `gemini-2.0-flash`, `hydrox-firewall`)
+2. **Judgment Prompt** — the prompt that tells the judge how to score each response
+3. **Threshold** — the pass/fail cutoff for vulnerability detection
+
+Know Your AI follows a consistent pipeline so results are reproducible and auditable:
 
 <Steps>
-  <Step title="Select datasets">
-    Choose attack prompts from the Marketplace or use your own datasets.
-  </Step>
   <Step title="Compose the test">
-    Configure the number of prompts, select datasets, and start the evaluation run.
+    Select datasets, configure the number of prompts, and choose your evaluation mode.
   </Step>
   <Step title="Send prompts">
-    Each prompt is sent to your product (via API call or browser automation for websites).
+    Each prompt is sent to your product — via direct API call (Model Evaluation) or through a browser control agent (Chatbot Evaluation).
   </Step>
   <Step title="Judge responses">
     The judgment model scores each response, producing: `isVulnerable`, `confidenceScore`, and `judgeAnalysis`.
@@ -39,56 +46,23 @@ Know Your AI follows a consistent pipeline so results are reproducible and audit
   </Step>
 </Steps>
 
-## Run types
-
-| Type | Best for | Example |
-| --- | --- | --- |
-| Security Test | Red-teaming with attack prompts | Jailbreak, prompt injection, data extraction |
-| Evaluation | Safety and quality assessment | Compliance checks, safety tests |
-| Benchmark | Standardized performance testing | Accuracy, robustness, hallucination tests |
-
-## Attack categories
-
-Know Your AI covers seven core attack categories:
-
-| Category | Description |
-| --- | --- |
-| Jailbreak | Attempts to bypass safety guardrails |
-| Prompt Injection | Manipulating the model's instructions |
-| Data Extraction | Extracting training data or system prompts |
-| Harmful Content | Generating dangerous or illegal content |
-| PII Leakage | Exposing personal identifiable information |
-| Bias | Detecting discriminatory outputs |
-| Hallucination | Generating false or fabricated information |
-
-## Website evaluation
-
-For website products, evaluations run in a Docker container with:
-
-- **Brave browser** with Browser-Use automation
-- **VNC viewer** for live browser control and observation
-- **Gemini Vision** for automatic login detection
-- **Human-in-the-loop** — auto-pauses when login is required, waits for user via VNC
-- **Screenshot capture** throughout the evaluation
-- **Session recording** for playback
-
 ## Running evaluations
 
 You can run evaluations in three ways:
 
-- **Compose Evaluation** for ad-hoc runs with selected datasets and prompt counts
-- **Scheduled runs** using cron-based scheduling (hourly, daily, weekly, monthly, or custom)
-- **Evaluation Market** templates for pre-configured safety, compliance, quality, and performance evaluations
+- **Compose Evaluation** — ad-hoc runs with selected datasets and configurable prompt counts
+- **Scheduled runs** — cron-based scheduling (hourly, daily, weekly, monthly, or custom) with enable/disable
+- **Evaluation Market** — pre-configured evaluation templates for Safety, Compliance, Quality, and Performance
 
 ## Interpreting results
 
 Each evaluation run produces:
 
-- **Security score** — Overall vulnerability percentage with animated chart
-- **Per-prompt results** — Pass/fail for each prompt with judge analysis
+- **Security score** — overall vulnerability percentage with animated chart
+- **Per-prompt results** — pass/fail for each prompt with judge analysis
 - **Compliance report** — CCPA/CPRA violation analysis with evidence
-- **Screenshots** — Browser screenshots for website evaluations
-- **Execution console** — Real-time streaming logs of prompts, responses, and judgments
+- **Screenshots** — browser screenshots captured during chatbot evaluations
+- **Execution console** — real-time streaming logs of prompts, responses, and judgments
 
 ## Run status lifecycle
 
@@ -96,17 +70,17 @@ Evaluation runs progress through these stages:
 
 `pending` → `queued` → `container_creating` → `running` → `completed` or `failed`
 
-## Common pitfalls
-
-- Using too few prompts for a meaningful security assessment
-- Not connecting the product API correctly before running
-- Ignoring compliance violations in the per-run reports
-
 ## Related docs
 
 <CardGroup cols={2}>
-  <Card title="How to use it" icon="wand-magic" href="/how-to-use">
-    Operational workflow from data to deployment.
+  <Card title="Model Evaluation" icon="code" href="/model-evaluation">
+    Learn about API-based red-team testing.
+  </Card>
+  <Card title="Chatbot Evaluation" icon="globe" href="/chatbot-evaluation">
+    Learn about browser-based chatbot testing.
+  </Card>
+  <Card title="Datasets" icon="database" href="/datasets">
+    Browse attack datasets and upload your own.
   </Card>
   <Card title="Monitoring" icon="chart-line" href="/monitoring">
     Turn evaluations into ongoing health signals.

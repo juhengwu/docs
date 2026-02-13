@@ -55,10 +55,11 @@
             ]
           },
           {
-            "group": "Evaluation & Datasets",
+            "group": "Evaluations",
             "pages": [
               "evaluation",
-              "datasets"
+              "model-evaluation",
+              "chatbot-evaluation"
             ]
           },
           {

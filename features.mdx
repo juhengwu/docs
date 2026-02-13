@@ -12,29 +12,19 @@ description: "Overview of all features in Know Your AI"
 | **Members & invitations** | Invite by email with roles (owner, admin, developer, viewer) and invitation lifecycle tracking |
 | **Usage & quotas** | Monthly quota allocation with usage ledger and reset tracking |
 
-## Datasets
-
-| Feature | Description |
-| --- | --- |
-| **Dataset Marketplace** | Browse and add public/community datasets with Pro tier support |
-| **Workspace Datasets** | Upload JSON/CSV datasets via drag-and-drop with input, golden answer, and knowledge fields |
-| **Attack datasets** | 7 attack categories and 15+ attack methods (GCG, ABJ, PAIR, DAN, CIPHER, etc.) |
-| **Dataset types** | Default, A/B Test, and GroundTruth datasets |
-| **Random sampling** | Configure prompt count for evaluation runs |
-
 ## Evaluations
 
 | Feature | Description |
 | --- | --- |
-| **Compose Evaluation** | Select datasets, configure prompt count, and launch evaluation runs |
+| **Model Evaluation (API Mode)** | Connect your AI model's API endpoint and run automated red-team testing with attack datasets |
+| **Chatbot Evaluation (Website Mode)** | Evaluate live chatbot websites using a browser control agent for end-to-end red-team testing |
 | **LLM-as-Judge** | Configurable judgment model and prompt with vulnerability scoring |
 | **Security testing** | Red-team your AI with attack prompts and get per-prompt pass/fail |
-| **Website evaluation** | Browser automation with Brave, VNC live viewer, and screenshot capture |
 | **Real-time console** | Streaming execution logs with prompt/response/judgment bubbles |
 | **Scheduled evaluations** | Cron-based scheduling (hourly, daily, weekly, monthly, custom) with enable/disable |
 | **Evaluation Market** | Browse pre-configured evaluation templates (Safety, Compliance, Quality, Performance) |
 | **Run history** | Full test run history with sortable/filterable table |
-| **Screenshot library** | Browse screenshots from browser-use evaluations |
+| **Screenshot library** | Browse captured screenshots from chatbot evaluations |
 
 ## Monitoring & tracing
 
@@ -81,7 +71,7 @@ Nine quality dimensions (some coming soon):
 
 <CardGroup cols={2}>
   <Card title="Evaluation deep dive" href="/evaluation">
-    Learn more about LLM-as-Judge and security testing.
+    Learn about Model Evaluation and Chatbot Evaluation.
   </Card>
   <Card title="Monitoring deep dive" href="/monitoring">
     Learn about SDK integration and tracing.
